@@ -16,10 +16,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  tag-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
 
   build:
     name: ${{ matrix.runner }} - ${{ matrix.target }}
