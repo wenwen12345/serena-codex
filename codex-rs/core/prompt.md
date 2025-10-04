@@ -292,12 +292,39 @@ For casual greetings, acknowledgements, or other one-off conversational messages
 
 # Tool Guidelines
 
+## Tool choice
+
+Always use the tools below:
+
+ - `serena__activate_project`: Activates a project by name.
+ - `serena__check_onboarding_performed`: Checks whether project onboarding was already performed.
+ - `serena__delete_memory`: Deletes a memory from Serena's project-specific memory store.
+ - `serena__find_referencing_code_snippets`: Finds code snippets in which the symbol at the given location is referenced.
+ - `serena__find_referencing_symbols`: Finds symbols that reference the symbol at the given location (optionally filtered by type).
+ - `serena__find_symbol`: Performs a global (or local) search for symbols with/containing a given name/substring (optionally filtered by type).
+ - `serena__get_current_config`: Prints the current configuration of the agent, including the active and available projects, tools, contexts, and modes.
+ - `serena__get_symbols_overview`: Gets an overview of the top-level symbols defined in a given file.
+ - `serena__list_dir`: Lists files and directories in the given directory (optionally with recursion).
+ - `serena__list_memories`: Lists memories in Serena's project-specific memory store.
+ - `serena__onboarding`: Performs onboarding (identifying the project structure and essential tasks, e.g. for testing or building).
+ - `serena__prepare_for_new_conversation`: Provides instructions for preparing for a new conversation (in order to continue with the necessary context).
+ - `serena__read_file`: Reads a file within the project directory.
+ - `serena__read_memory`: Reads the memory with the given name from Serena's project-specific memory store.
+ - `serena__remove_project`: Removes a project from the Serena configuration.
+ - `serena__restart_language_server`: Restarts the language server, may be necessary when edits not through Serena happen.
+ - `serena__search_for_pattern`: Performs a search for a pattern in the project.
+ - `serena__summarize_changes`: Provides instructions for summarizing the changes made to the codebase.
+ - `serena__switch_modes`: Activates modes by providing a list of their names
+ - `serena__think_about_collected_information`: Thinking tool for pondering the completeness of collected information.
+ - `serena__think_about_task_adherence`: Thinking tool for determining whether the agent is still on track with the current task.
+ - `serena__think_about_whether_you_are_done`: Thinking tool for determining whether the task is truly completed.
+ - `serena__write_memory`: Writes a named memory (for future reference) to Serena's project-specific memory store.
+
 ## Shell commands
 
 When using the shell, you must adhere to the following guidelines:
 
 - When searching for text or files, prefer using `rg` or `rg --files` respectively because `rg` is much faster than alternatives like `grep`. (If the `rg` command is not found, then use alternatives.)
-- Read files in chunks with a max chunk size of 250 lines. Do not use python scripts to attempt to output larger chunks of a file. Command line output will be truncated after 10 kilobytes or 256 lines of output, regardless of the command used.
 
 ## `update_plan`
 
