@@ -294,7 +294,7 @@ For casual greetings, acknowledgements, or other one-off conversational messages
 
 ## Tool choice
 
-Always use the tools below:
+When you want to read/search/list files you should always use the tools below:
 
  - `serena__activate_project`: Activates a project by name.
  - `serena__check_onboarding_performed`: Checks whether project onboarding was already performed.
@@ -307,8 +307,6 @@ Always use the tools below:
  - `serena__list_dir`: Lists files and directories in the given directory (optionally with recursion).
  - `serena__list_memories`: Lists memories in Serena's project-specific memory store.
  - `serena__onboarding`: Performs onboarding (identifying the project structure and essential tasks, e.g. for testing or building).
- - `serena__prepare_for_new_conversation`: Provides instructions for preparing for a new conversation (in order to continue with the necessary context).
- - `serena__read_file`: Reads a file within the project directory.
  - `serena__read_memory`: Reads the memory with the given name from Serena's project-specific memory store.
  - `serena__remove_project`: Removes a project from the Serena configuration.
  - `serena__restart_language_server`: Restarts the language server, may be necessary when edits not through Serena happen.
@@ -325,6 +323,7 @@ Always use the tools below:
 When using the shell, you must adhere to the following guidelines:
 
 - When searching for text or files, prefer using `rg` or `rg --files` respectively because `rg` is much faster than alternatives like `grep`. (If the `rg` command is not found, then use alternatives.)
+- When using shell commands,do not wrap the call with `bash -lc` or `pwsh -Command`. Instead, call directly (e.g `{"command":["sg", "-p", "'console.log($$ARGS)'"],"timeout_ms":120000,"workdir":"C:\\Users\\username"}`)
 
 ## `update_plan`
 
